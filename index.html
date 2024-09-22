@@ -267,13 +267,13 @@
                 Hit me up, if I don't respond I'm probably sleeping 😴😴
                 <div class="cta-detail">Let's talk here👇🏻👇🏻</div>
                 <div class="button-container">
-                    <a href="https://onlyfans.com/cutelittlecindy/c3" class="transparent-button" target="_blank" rel="noopener noreferrer">
+                    <button class="transparent-button" onclick="openLink('https://onlyfans.com/cutelittlecindy/c3')">
                         <img src="images/OnlyFans-Symbol.png" alt="OnlyFans Symbol" class="button-icon">
                         <span class="button-text"> Only Friends VIP</span>
-                    </a>
-                    <a href="https://onlyfans.com/cutelittlecindy/c3" class="transparent-button" target="_blank" rel="noopener noreferrer">
+                    </button>
+                    <button class="transparent-button" onclick="openLink('https://onlyfans.com/cutelittlecindy/c3')">
                         I Reply Hereee!!~ 💌💌💌
-                    </a>
+                    </button>
                 </div>
             </div>
             <!-- Countdown timer -->
@@ -346,6 +346,10 @@
             const dateStr = `Free until today, ${now.toDateString()}`;
             document.getElementById('date').textContent = dateStr;
         };
+
+        function openLink(url) {
+            window.open(url, '_blank'); // Open the URL in a new tab
+        }
     </script>
 </body>
 </html>
