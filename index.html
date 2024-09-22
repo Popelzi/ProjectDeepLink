@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cindy-Petal</title>
+    <title>Little Cindy🥰</title>
     <link rel="stylesheet" href="styles.css">
-    
     <style>
         /* General styles */
         body, html {
@@ -15,36 +13,108 @@
             height: 100%;
             overflow: hidden;
             font-family: Arial, sans-serif;
-            background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for the whole website */
+            background: rgba(0, 0, 0, 0.4); /* Lighter semi-transparent background for the whole website */
         }
 
         /* Background image */
         .background-image {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('Jasmine.jpg');
-            background-size: contain; /* Scale the image to cover the entire background */
-            background-repeat: repeat; /* Prevent repeating the image */
-            background-position: center center; /* Center the image */
-            z-index: -2;
+            background: url('cindywallpaper.png') repeat; /* Tiles the background image */
+            background-size: 100px 100px; /* Adjust the size of each tile */
+            z-index: -3; /* Keeps it behind the video */
         }
 
-        /* Overlay styles */
+        /* Video background */
+        .video-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -2; /* Behind the overlay but in front of the background image */
+            /* Adjust these dimensions as needed for the video size */
+            max-width: 100vw; /* Ensure video doesn’t overflow horizontally */
+            max-height: 100vh; /* Ensure video doesn’t overflow vertically */
+        }
+
+        /* Default video behavior */
+        .video-background.desktop {
+            object-fit: contain; /* Retains the aspect ratio and avoids stretching */
+        }
+
+        .video-background.mobile {
+            object-fit: contain; /* Retains the aspect ratio and avoids stretching */
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            .video-background {
+                object-fit: contain; /* Retains the aspect ratio on mobile */
+            }
+
+            .circle-container {
+                padding: 15px;
+                top: 30px;
+            }
+
+            .circle-text {
+                font-size: 20px;
+            }
+
+            .status-text {
+                font-size: 16px;
+            }
+
+            .additional-text {
+                font-size: 16px;
+            }
+
+            .unique-info {
+                bottom: 10px;
+            }
+
+            .call-to-action {
+                font-size: 14px;
+            }
+
+            .cta-detail {
+                font-size: 14px;
+            }
+
+            .button-container {
+                gap: 10px; /* Further reduced space between buttons */
+            }
+
+            .transparent-button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .button-icon {
+                width: 20px;
+            }
+
+            .button-text {
+                font-size: 16px;
+            }
+        }
+
+        /* Text overlay styles */
         .text-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+            background: rgba(0, 0, 0, 0.3); /* Reduced opacity for a lighter overlay */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 1;
+            z-index: 1; /* Above everything else */
             text-align: center;
         }
 
@@ -74,7 +144,7 @@
         .circle-image img {
             width: 100%;
             height: 100%;
-            object-fit: fill;
+            object-fit: cover;
         }
 
         .circle-text {
@@ -129,11 +199,6 @@
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
-        }
-
-        .unique-geolocation {
-            font-size: 16px;
-            margin-bottom: 10px; /* Space between location and countdown */
         }
 
         .call-to-action {
@@ -193,46 +258,6 @@
             margin-top: 5px;
         }
 
-        /* Mobile adjustments */
-        @media (max-width: 767px) {
-            .transparent-button {
-                padding: 10px 20px;
-                font-size: 16px;
-            }
-            .button-icon {
-                width: 20px;
-            }
-            .button-text {
-                font-size: 16px;
-            }
-            .call-to-action {
-                font-size: 14px;
-            }
-        }
-
-        /* Timer styles */
-        .timer-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .timer-box {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(255, 255, 255, 0.2); /* Transparent white background */
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
-            border-radius: 10px;
-            border: 2px solid white;
-        }
-
         /* Date display styles */
         .date-display {
             font-size: 16px;
@@ -248,40 +273,43 @@
     </style>
 </head>
 <body>
+    <!-- Background image container -->
     <div class="background-image"></div>
+    
+    <!-- Video background -->
+    <video class="video-background desktop" autoplay loop muted playsinline>
+        <source src="0903.mp4" type="video/mp4">
+        <source src="0903.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Text overlay -->
     <div class="text-overlay">
         <div class="circle-container">
             <div class="circle-image">
-                <img src="rendernet_image%20(21).jpg" alt="Circle Image">
+                <img src="rendernet_image%20(20).jpg" alt="Circle Image">
             </div>
-            <div class="circle-text">❤️Cindy❤️</div>
+            <div class="circle-text"> Lil Cindy 😘</div>
             <div class="status-container">
                 <div class="status-dot"></div>
                 <div class="status-text">Online</div>
             </div>
-            <div class="additional-text">Hi, I'm Cindy and I'm currently visiting</div>
+            <div class="additional-text">Hi thanks for visiting my page </div>
         </div>
-        <!-- New section for geolocation, countdown, and date -->
+        <!-- New section for date and call-to-action -->
         <div class="unique-info">
-            <div class="unique-geolocation">Loading location...</div>
             <div class="call-to-action">
-                Hit me up, if I don't respond I'm probably sleeping 😴😴
+                Send me a message, I'll be waiting for you💋
                 <div class="cta-detail">Let's talk here👇🏻👇🏻</div>
                 <div class="button-container">
-                    <a href="https://onlyfans.com/cutelittlecindy/c3" class="transparent-button">
+                    <a href="#" class="transparent-button" onclick="openLinkInBrowser('https://onlyfans.com/cutelittlecindy/c2')">
                         <img src="images/OnlyFans-Symbol.png" alt="OnlyFans Symbol" class="button-icon">
-                        <span class="button-text"> Only Friends VIP</span>
+                        <span class="button-text">OnlyFans VIP</span>
                     </a>
-                    <a href="https://onlyfans.com/cutelittlecindy/c3" class="transparent-button">
-                         I Reply Hereee!!~ 💌💌💌
+                    <a href="#" class="transparent-button" onclick="openLinkInBrowser('https://onlyfans.com/cutelittlecindy/c2')">
+                        Click here for Free OnlyFans🥰 
                     </a>
                 </div>
-            </div>
-            <!-- Countdown timer -->
-            <div class="timer-container">
-                <div class="timer-box" id="hours"></div>:
-                <div class="timer-box" id="minutes"></div>:
-                <div class="timer-box" id="seconds"></div>
             </div>
             <!-- Date display -->
             <div class="date-display" id="date">Free until today,</div>
@@ -289,64 +317,28 @@
     </div>
     <script>
         window.onload = function() {
-            // Fetch geolocation and update text
-            fetch('https://ipapi.co/json/')
-                .then(response => response.json())
-                .then(data => {
-                    const location = `${data.city}, ${data.region}, ${data.country_name}`;
-                    document.querySelector('.unique-geolocation').textContent = location;
-                })
-                .catch(error => {
-                    document.querySelector('.unique-geolocation').textContent = "Information is unavailable.";
-                    console.error('Error fetching location data:', error);
-                });
-
-            // Set timer duration (10 minutes for demo purposes, adjust as needed)
-            const TIMER_DURATION = 10 * 60 * 1000; // 10 minutes in milliseconds
-            const RESET_INTERVAL = 15 * 60 * 1000; // 15 minutes in milliseconds
-
-            // Function to get the end time from local storage or calculate a new one
-            function getEndTime() {
-                const savedEndTime = localStorage.getItem('endTime');
-                const now = new Date().getTime();
-                if (savedEndTime && (now - savedEndTime < RESET_INTERVAL)) {
-                    return parseInt(savedEndTime, 10);
-                } else {
-                    const newEndTime = now + TIMER_DURATION;
-                    localStorage.setItem('endTime', newEndTime);
-                    return newEndTime;
-                }
-            }
-
-            let endTime = getEndTime();
-
-            function updateTimer() {
-                const now = new Date().getTime();
-                const timeRemaining = endTime - now;
-
-                if (timeRemaining <= 0) {
-                    // Reset timer every 15 minutes
-                    endTime = new Date().getTime() + TIMER_DURATION;
-                    localStorage.setItem('endTime', endTime);
-                }
-
-                const hours = Math.floor((timeRemaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
-                const minutes = Math.floor((timeRemaining % (60 * 60 * 1000)) / (60 * 1000));
-                const seconds = Math.floor((timeRemaining % (60 * 1000)) / 1000);
-
-                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-            }
-
-            setInterval(updateTimer, 1000);
-            updateTimer(); // Initialize immediately
-
             // Display current date
             const now = new Date();
             const dateStr = `Free until today, ${now.toDateString()}`;
             document.getElementById('date').textContent = dateStr;
         };
+
+        function openLinkInBrowser(url) {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // iOS detection
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.open(url, '_blank'); // Opens in Safari
+            }
+            // Android detection
+            else if (/android/i.test(userAgent)) {
+                window.open(url, '_blank'); // Opens in default Android browser
+            }
+            // Desktop
+            else {
+                window.open(url, '_blank'); // Opens in desktop default browser
+            }
+        }
     </script>
 </body>
 </html>
